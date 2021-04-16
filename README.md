@@ -60,7 +60,7 @@ You are **responsible** for scheduling time with your squad to seek approval for
 ## Priority Matrix
 
 Include a full list of features that have been prioritized based on the `Time and Importance` Matrix.  Link this image in a similar manner to your wireframes
-https://lucid.app/lucidchart/invitations/accept/inv_4d868498-eff2-4d46-b577-fd85780b0c0d?viewport_loc=-14%2C-52%2C1060%2C722%2C0_0
+https://lucid.app/lucidchart/f37033e3-f212-4840-9858-2979d7a0c05a/view?page=0_0#
 
 ## Timeframes
 
