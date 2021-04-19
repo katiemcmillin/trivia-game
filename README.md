@@ -108,14 +108,14 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
 | Finding API/Project Approval                | H | 5hrs| N/A | N/A |
-| Setting up intitial HTML/CSS/JS and linking | H | 1h  | N/A | N/A |
-| Pseudocode                                  | M |.5hrs| N/A | N/A |
+| Setting up intitial HTML/CSS/JS and linking | H | 1hr | N/A | N/A |
+| Pseudocode                                  | M | 1hr | N/A | N/A |
 | Setting up/working with API                 | H | 3hrs| N/A | N/A |
 | Setting up functionality/writing code       | H | 5hrs| N/A | N/A |
 | Basic CSS                                   | H | 5hrs| N/A | N/A |
 | Responsive Design                           | M | 2hrs| N/A | N/A |
 | Advanced CSS / Animations/Transitions       | L | 8hrs| N/A | N/A |
-| Total | H | 29.5hrs| N/A | N/A |
+| Total | H | 30hrs| N/A | N/A |
 
 ## Code Snippet
 
