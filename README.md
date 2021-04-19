@@ -13,6 +13,42 @@ My project will be a trivia game with the ability to search by category and diff
 ## API and Data Sample
 
 Specify the API you are using and include a link. Show us a snippet of JSON returned by your API so we know you can access it and get the info you need
+```
+{
+            "category": "Art",
+            "type": "multiple",
+            "difficulty": "medium",
+            "question": "Which artist&rsquo;s studio was known as &#039;The Factory&#039;?",
+            "correct_answer": "Andy Warhol",
+            "incorrect_answers": [
+                "Roy Lichtenstein",
+                "David Hockney",
+                "Peter Blake"
+            ]
+        },
+        {
+            "category": "Art",
+            "type": "multiple",
+            "difficulty": "hard",
+            "question": "Albrecht D&uuml;rer&#039;s birthplace and place of death were in...",
+            "correct_answer": "N&uuml;rnberg",
+            "incorrect_answers": [
+                "Augsburg",
+                "Bamberg",
+                "Berlin"
+            ]
+        },
+        {
+            "category": "Art",
+            "type": "boolean",
+            "difficulty": "medium",
+            "question": "Vincent van Gogh cut off one of his ears.",
+            "correct_answer": "True",
+            "incorrect_answers": [
+                "False"
+            ]
+        },
+```
 
 Open Trivia Database
 
