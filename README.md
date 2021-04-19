@@ -69,7 +69,7 @@ The functionality will then be divided into two separate lists: MPV and PostMVP.
 - Find and use external api 
 - Render data on page 
 - Keep track of score
-- search by category and difficulty 
+- Search by category and difficulty 
 
 #### PostMVP  
 - Add music
