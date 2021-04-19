@@ -1,0 +1,64 @@
+//Link API
+  //Get Categories from API
+async function getCategories() {
+ try {
+  const categoryURL = 'https://opentdb.com/api_category.php'; 
+   let categoryResponse = await axios.get(categoryURL);
+    //console.log(categoryResponse.data.trivia_categories);
+   setOptions(categoryResponse.data.trivia_categories);
+   return categoryResponse.data.trivia_categories;
+  } catch (error) {
+    console.error(error);
+  }
+}
+getCategories();
+  //Append to DOM
+  function setOptions(list) {
+    //console.log(list)
+    const selectTag = document.querySelector('#select-category')
+    list.forEach((category) => {
+      //console.log(category)
+      const optionTag = document.createElement('option')
+      optionTag.textContent = category.name;
+      optionTag.value = category.name;
+      selectTag.append(optionTag)
+    })
+    return list
+  }
+
+  function getValue(e) {
+    e.preventDefault()
+    const optionValue = document.querySelector('#select-category').value
+    //console.log(optionValue)
+    getCategory(optionValue)
+    return optionValue
+  }
+
+  const form = document.querySelector('form')
+form.addEventListener("submit", getValue)
+
+
+//Build out HTML elements/structure
+  //Create first page that asks for User Name, Category, and Difficulty
+  //Create interface for game
+    //Create Title
+    //Create box for questions
+    //Create inner box
+    //Create Category box
+    //Create question box
+    //Create score box
+    //Insert Image at bottom
+
+//Create interactive game with JavaScript
+  //Get user input for name
+  //Create dropdown menus for Category and Difficulty
+  //Go to game and display question 1 with Category, Question and possible answers
+  //User clicks on one question 
+    //If correct, background changes to green and score goes up by one
+      //else, background changed to red and score stays the same
+  //Goes to next question and repeats
+  //Games ends after 10 questions
+    //shows final score
+
+//Style with CSS/Flexbox
+
