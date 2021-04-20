@@ -48,22 +48,14 @@ form.addEventListener("submit", getValues)
 
 //Redirect input page to gamepage
 
-// function redirect() {
-//   window.location.replace("./game-page.html");
-//   return false;
-// }
+function redirect() {
+  window.location.replace("./game-page.html");
+  return false;
+}
 
 
 //Display Info on GamePage
-async function getQuestions(valueArray) {
-  const questionsURL = `https://opentdb.com/api.php?amount=10&category=${valueArray[1]}&difficulty=${valueArray[2]}`
-  try {
-    let questionDataResponse = await axios.get(questionsURL);
-    console.log(questionDataResponse.data);
-  } catch (error) {
-    console.error(error);
-  }
-}
+
 
 
 // function displayDifficulty (){
