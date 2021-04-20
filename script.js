@@ -78,16 +78,7 @@ function redirect() {
     //Create score box
     //Insert Image at bottom
 
-//Create interactive game with JavaScript
-  //Get user input for name
-  //Create dropdown menus for Category and Difficulty
-  //Go to game and display question 1 with Category, Question and possible answers
-  //User clicks on one question 
-    //If correct, background changes to green and score goes up by one
-      //else, background changed to red and score stays the same
-  //Goes to next question and repeats
-  //Games ends after 10 questions
-    //shows final score
+
 
 //Style with CSS/Flexbox
 
