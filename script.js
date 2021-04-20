@@ -15,12 +15,13 @@ getCategories();
 //Append to DOM
 function setOptions(list) {
   //console.log(list)
-  const selectTag = document.querySelector('.select-category')
+  const selectTag = document.querySelector('#select-category')
   list.forEach((category) => {
     //console.log(category)
     const optionTag = document.createElement('option')
     optionTag.textContent = category.name;
-    optionTag.value = category.id;
+    optionTag.id = category.id;
+    localStorage.setItem(`${category.name}`, category.id);
     selectTag.append(optionTag)
   })
   return null;
@@ -28,19 +29,16 @@ function setOptions(list) {
 
 function getValues(e) {
   e.preventDefault()
-  //console.log(e.target);
   const name = document.querySelector('input').value;
-  //console.log(name);
-  const categoryValue = document.querySelector('.select-category').value;
-  //console.log(categoryValue)
+  localStorage.setItem('name', name);
+  const categoryText = document.querySelector('#select-category').value;
+  localStorage.setItem('categoryText', categoryText);
+  localStorage.setItem('categoryId', localStorage.getItem(categoryText));
   const difficultyLevel = document.querySelector("#select-difficulty").value;
-  //console.log(difficultyLevel)
-  let valueArray = [name, categoryValue, difficultyLevel];
-  
-  getQuestions(valueArray);
-  
-  }
+  localStorage.setItem('difficulty', difficultyLevel);
 
+  }
+console.log(localStorage.categoryText);
 
 
 const form = document.querySelector('form')
@@ -50,10 +48,10 @@ form.addEventListener("submit", getValues)
 
 //Redirect input page to gamepage
 
-function redirect() {
-  window.location.replace("./game-page.html");
-  return false;
-}
+// function redirect() {
+//   window.location.replace("./game-page.html");
+//   return false;
+// }
 
 
 //Display Info on GamePage
@@ -66,6 +64,7 @@ async function getQuestions(valueArray) {
     console.error(error);
   }
 }
+
 
 // function displayDifficulty (){
 //   let categoryH2 = document.selectElementById('category');
