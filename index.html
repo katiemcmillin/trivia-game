@@ -10,8 +10,9 @@
   <title>Document</title>
 </head>
 <body>
-<div><input type="text" placeholder="Name">
-  <form>
+<div>
+  <form method="post" onsubmit="return redirect()">
+    <input type="text" placeholder="Name">
     <select class="select-category">
     <option disabled selected>Choose your category</option>
     </select>
@@ -21,7 +22,7 @@
   <option value="medium">Medium</option>
   <option value="hard">Hard</option>
     </select>
-    <button>Submit</button>
+    <input type="submit" class="button" value="Submit">
   </form>
 </div>
 </body>

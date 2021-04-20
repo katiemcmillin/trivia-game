@@ -36,13 +36,25 @@ function getValues(e) {
   const difficultyLevel = document.querySelector("#select-difficulty").value;
   //console.log(difficultyLevel)
   let valueArray = [name, categoryValue, difficultyLevel];
+  
   getQuestions(valueArray);
+  
   }
 
 
 
 const form = document.querySelector('form')
 form.addEventListener("submit", getValues)
+
+
+
+//Redirect input page to gamepage
+
+function redirect() {
+  window.location.replace("./game-page.html");
+  return false;
+}
+
 
 //Display Info on GamePage
 async function getQuestions(valueArray) {
