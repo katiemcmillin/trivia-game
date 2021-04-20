@@ -111,7 +111,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Setting up intitial HTML/CSS/JS and linking | H | 1hr | 1hr | 1hr |
 | Pseudocode                                  | M | 1hr | .5hr | .5hr |
 | Setting up/working with API                 | H | 3hrs| 4hrs | N/A |
-| Setting up functionality/writing code       | H | 5hrs| N/A | N/A |
+| Setting up functionality/writing code       | H | 5hrs| 2hrs | N/A |
 | Basic CSS                                   | H | 5hrs| N/A | N/A |
 | Responsive Design                           | M | 2hrs| N/A | N/A |
 | Advanced CSS / Animations/Transitions       | L | 8hrs| N/A | N/A |
