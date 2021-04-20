@@ -86,9 +86,9 @@ You are **responsible** for scheduling time with your squad to seek approval for
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|April 16-18| Prompt / Wireframes / Priority Matrix / Timeframes | Incomplete
-|April 19| Project Approval | Incomplete
-|April 19| Core Application Structure (HTML, CSS, etc.) | Incomplete
+|April 16-18| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
+|April 19| Project Approval | Complete
+|April 19| Core Application Structure (HTML, CSS, etc.) | Complete
 |April 19-21| Pseudocode / actual code | Incomplete
 |April 21| MVP  | Incomplete
 |April 22| Post-MVP | Incomplete
@@ -107,10 +107,10 @@ Time frames are also key in the development cycle.  You have limited time to cod
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Finding API/Project Approval                | H | 5hrs| N/A | N/A |
-| Setting up intitial HTML/CSS/JS and linking | H | 1hr | N/A | N/A |
-| Pseudocode                                  | M | 1hr | N/A | N/A |
-| Setting up/working with API                 | H | 3hrs| N/A | N/A |
+| Finding API/Project Approval                | H | 5hrs| 5hrs |5hrs |
+| Setting up intitial HTML/CSS/JS and linking | H | 1hr | 1hr | 1hr |
+| Pseudocode                                  | M | 1hr | .5hr | .5hr |
+| Setting up/working with API                 | H | 3hrs| 4hrs | N/A |
 | Setting up functionality/writing code       | H | 5hrs| N/A | N/A |
 | Basic CSS                                   | H | 5hrs| N/A | N/A |
 | Responsive Design                           | M | 2hrs| N/A | N/A |
