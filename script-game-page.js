@@ -1,20 +1,19 @@
 let totalScore = 0;
 let turn = 0;
+let results = [];
 document.querySelector('#score').textContent = `Score: ${totalScore}`;
 
 async function getQuestions() {
   const questionsURL = `https://opentdb.com/api.php?amount=10&category=${localStorage.categoryId}&difficulty=${localStorage.difficulty}`;
   try {
     let questionDataResponse = await axios.get(questionsURL);
-    //console.log(questionDataResponse.data);
-      currentQuestion(questionDataResponse.data);
-    //console.log(questionDataResponse.data.results[0].question)
+    currentQuestion(questionDataResponse.data, turn);
   } catch (error) {
     console.error(error);
   }
 }
 getQuestions();
-
+console.log(results)
 function makePrettyString(str) {
   str = str.replace(/&quot;/g, '"');
   str = str.replace(/&#039;/g, "'");
@@ -26,8 +25,8 @@ function makePrettyString(str) {
 
 document.querySelector('#category').textContent = `Category: ${localStorage.categoryText}`;
 
-function currentQuestion(data) {
-  let question = `${makePrettyString(data.results[turn].question)}`
+function currentQuestion(data, turn) {
+    let question = `${makePrettyString(data.results[turn].question)}`
     document.querySelector('#question').textContent = `Question: ${question}`;
     let allAnswersArray = [];
     const correctAnswer = `${makePrettyString(data.results[0].correct_answer)}`;
@@ -56,32 +55,38 @@ function currentQuestion(data) {
       document.querySelector('#answer').append(answerLabel);
       document.querySelector('#answer').append(answerButton);
     });
-    const btn = document.querySelector('#btn');
+    
+
+}
+
+const btn = document.querySelector('#btn');
     // handle click button
-    btn.onclick = function () {
+    btn.onclick = function selectAnswer () {
       const choices = document.querySelectorAll('input[name="choice"]');
       let selectedValue;
       for (const choice of choices) {
         if (choice.checked) {
           selectedValue = choice.value;
           turn++
+          console.log(turn)
           scoreTracker(choice.classList.value);
           //scoreTracker(selectedValue);
-          window.location.reload;
           break
         }
       }
     }
 
-}
+
 function scoreTracker(value) {
       if (value === 'correct-answer') {
       totalScore++;
         document.querySelector('#score').textContent = `Score: ${totalScore}`;
+        console.log(totalScore)
       //alert(`You chose wisely! Score: ${totalScore}`);
     
     
       } else {
+        console.log(totalScore)
       //alert(`You chose poorly! Score: ${totalScore}`);
     }
 
