@@ -89,8 +89,8 @@ You are **responsible** for scheduling time with your squad to seek approval for
 |April 16-18| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |April 19| Project Approval | Complete
 |April 19| Core Application Structure (HTML, CSS, etc.) | Complete
-|April 19-21| Pseudocode / actual code | Incomplete
-|April 21| MVP  | Incomplete
+|April 19-21| Pseudocode / actual code | Complete
+|April 21| MVP  | Complete
 |April 22| Post-MVP | Incomplete
 |April 23| Presentations | Incomplete
 
@@ -110,9 +110,9 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Finding API/Project Approval                | H | 5hrs| 5hrs |5hrs |
 | Setting up intitial HTML/CSS/JS and linking | H | 1hr | 1hr | 1hr |
 | Pseudocode                                  | M | 1hr | .5hr | .5hr |
-| Setting up/working with API                 | H | 3hrs| 4hrs | N/A |
-| Setting up functionality/writing code       | H | 5hrs| 2hrs | N/A |
-| Basic CSS                                   | H | 5hrs| N/A | N/A |
+| Setting up/working with API                 | H | 3hrs| 4hrs | 4hrs |
+| Setting up functionality/writing code       | H | 5hrs| 6hrs | 6hrs |
+| Basic CSS                                   | H | 5hrs| 1hr | N/A |
 | Responsive Design                           | M | 2hrs| N/A | N/A |
 | Advanced CSS / Animations/Transitions       | L | 8hrs| N/A | N/A |
 | Total | H | 30hrs| N/A | N/A |
@@ -122,10 +122,22 @@ Time frames are also key in the development cycle.  You have limited time to cod
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
+function makePrettyString(str) {
+  str = str.replace(/&quot;/g, '"');
+  str = str.replace(/&#039;/g, "'");
+  str = str.replace(/&ldquo;/g, '"');
+  str = str.replace(/&amp;/g, '&');
+  str = str.replace(/&rdquo;/g, '"');
+  str = str.replace(/&eacute;/g, 'è');
+  str = str.replace(/&iacute;/g, 'ì');
+  str = str.replace(/&uuml;/g, 'ü');
+  str = str.replace(/&ecirc;/g, 'î');
+  str = str.replace(/&ntilde;/g, 'ñ');
+  str = str.replace(/ouml;/g, 'ö')
+  return str;
 }
 ```
-
+I'm proud of this function that cleans up the special characters that did not render correctly.
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  
+ Use this section to document what changes were made and the reasoning behind those changes.
+ I used local storage for my API and user input so that I could have multiple HTML files and be able to access the information on all of them. 
