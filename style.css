@@ -1,0 +1,43 @@
+* {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  background-color: #50ffce
+}
+
+body {
+  margin: 20px;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  text-align: center;
+}
+header {
+  text-shadow: 3px 3px white;
+}
+input[type='text'] {
+  margin-top: 50px;
+  background-color: white;
+  margin-bottom: 50px;
+  white-space: pre-line; 
+}
+
+select#select-category {
+  margin-bottom: 50px;
+  background-color: white;
+  white-space: pre-line;
+}
+select#select-difficulty {
+  white-space: pre-line;
+  background-color: white;
+  margin-botton: 50px;
+  }
+input.button {
+  white-space: pre-line;
+  background-color: white;
+}
+#btn {
+  margin-top: 10px;;
+}

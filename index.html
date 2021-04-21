@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script defer src="./script.js"></script>
   <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <title>Document</title>
 </head>
 <body>
-<div>
+  <header><h1>You Don't Know Jill</h1></header>
+<div class='container'>
   <form method="post" onsubmit="return redirect()">
     <input type="text" placeholder="Name">
-    <select id="select-category">
+    <select id="select-category"></li>
     <option disabled selected>Choose your category</option>
     </select>
     <select id="select-difficulty">
@@ -23,6 +26,7 @@
   <option value="hard">Hard</option>
     </select>
     <input type="submit" class="button" value="Submit">
+  </ul>
   </form>
 </div>
 </body>

@@ -26,6 +26,7 @@ function makePrettyString(str) {
   str = str.replace(/&uuml;/g, 'ü');
   str = str.replace(/&ecirc;/g, 'î');
   str = str.replace(/&ntilde;/g, 'ñ');
+  str = str.replace(/ouml;/g, 'ö')
   return str;
 }
 
