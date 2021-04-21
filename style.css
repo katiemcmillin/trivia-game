@@ -7,53 +7,66 @@
 body {
   margin: 20px;
   box-sizing: border-box;
-  background-color: #50ffce
+  background-color: #50ffce;
  
 }
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: stretch;
   margin: 0 auto;
   text-align: center;
   border: 2px solid black;
-  background-color: black;
+  background-color: white;
 }
 header {
   text-shadow: 3px 3px white;
 }
 input[type='text'] {
   margin-top: 50px;
-  background-color: white;
   margin-bottom: 50px;
   white-space: pre-line; 
 }
 
 select#select-category {
   margin-bottom: 50px;
-  background-color: white;
   white-space: pre-line;
 }
 select#select-difficulty {
   white-space: pre-line;
-  background-color: white;
-  margin-botton: 50px;
+  margin-bottom: 50px;
   }
 input.button {
   white-space: pre-line;
-  background-color: white;
   margin-bottom: 50px;
+  background-color: #50ffce;
 }
 #btn {
   margin-top: 10px;
+
   
 }
 div#question {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+div#answer {
+  background-color: white;
+  border: 2px solid black;
+  padding-bottom: 15px;;
+}
 ul#answer-list{
   list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
+}
+img {
+  width: 100%;
+}
+@media only screen and (max-width: 500px) {
+  .container {
+    background-color: #50ffce;
+    border: none;
+  }
 }

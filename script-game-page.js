@@ -1,3 +1,13 @@
+//Create interactive game with JavaScript
+  //Get user input for name
+  //Create dropdown menus for Category and Difficulty
+  //Go to game and display question 1 with Category, Question and possible answers
+  //User clicks on one question 
+    //If correct, score goes up by one
+      //else, score stays the same
+  //Goes to next question and repeats
+  //Games ends after 10 questions
+    //shows final score
 let totalScore = 0;
 let turn = 0;
 
@@ -26,10 +36,12 @@ function makePrettyString(str) {
   str = str.replace(/&uuml;/g, 'ü');
   str = str.replace(/&ecirc;/g, 'î');
   str = str.replace(/&ntilde;/g, 'ñ');
-  str = str.replace(/ouml;/g, 'ö');
-  str = str.replace(/oacute;/g, 'ó');
-  str = str.replace(/aacute;/g, 'á');
-  str = str.replace(/uacute;/g, 'ú');
+  str = str.replace(/&ouml;/g, 'ö');
+  str = str.replace(/&oacute;/g, 'ó');
+  str = str.replace(/&aacute;/g, 'á');
+  str = str.replace(/&uacute;/g, 'ú');
+  str = str.replace(/&deg;/g, '°');
+  str = str.replace(/&rsquo;/g, "'");
   return str;
 }
 
@@ -39,8 +51,7 @@ document.querySelector('#answerTitle').textContent = `${localStorage.name}, sele
 function currentQuestion(data, turn) {
   let question = `${makePrettyString(data.results[turn].question)}`
   document.querySelector('#question').textContent = `Question: ${question}`;
-  document.querySelectorAll('input[type=radio').forEach(e => e.remove());
-  document.querySelectorAll('label').forEach(e => e.remove());
+  document.querySelectorAll('li').forEach(e => e.remove());
   let allAnswersArray = [];
   const correctAnswer = `${makePrettyString(data.results[turn].correct_answer)}`;
   let incorrectAnswersArray = data.results[turn].incorrect_answers;
@@ -66,7 +77,7 @@ function currentQuestion(data, turn) {
     }
     let listElement = document.createElement('li');
     document.querySelector('#answer-list').append(listElement);
-   listElement.append(answerLabel);
+    listElement.append(answerLabel);
     listElement.append(answerButton);
   });
 
@@ -75,59 +86,37 @@ function currentQuestion(data, turn) {
 
 const btn = document.querySelector('#btn');
 // handle click button
-  btn.onclick = function selectAnswer() {
-    const choices = document.querySelectorAll('input[name="choice"]');
-    let selectedValue;
-    for (const choice of choices) {
-      if (choice.checked) {
-        selectedValue = choice.value;
-        turn++
-        console.log(turn)
-        scoreTracker(choice.classList.value);
-        currentQuestion(JSON.parse(localStorage.getItem('apiData')), turn)
-        //scoreTracker(selectedValue);
-        break
-      }
+btn.onclick = function selectAnswer() {
+  const choices = document.querySelectorAll('input[name="choice"]');
+  let selectedValue;
+  for (const choice of choices) {
+    if (choice.checked) {
+      selectedValue = choice.value;
+      turn++
+      scoreTracker(choice.classList.value);
+      currentQuestion(JSON.parse(localStorage.getItem('apiData')), turn);
+      break
     }
   }
-
-
-
-function scoreTracker(value) {
-  
-  if (value === 'correct-answer') {
-    totalScore++;
-    
-    document.querySelector('#selection-message').textContent = `Correct!`
-    document.querySelector('#score').textContent = `Score: ${totalScore}`;
-    console.log(totalScore)
-    
-
-
-  } else {
-    document.querySelector('#selection-message').textContent = `Incorrect!`
-    console.log(totalScore)
-   
-  }
-  if (turn > 9) {
-    localStorage.setItem('finalScore', `${totalScore}/10`)
-    window.location.replace("./final-score.html");
-    
-    }
 }
 
 
 
+function scoreTracker(value) {
+
+  if (value === 'correct-answer') {
+    totalScore++;
+    document.querySelector('#selection-message').textContent = `Correct!`
+    document.querySelector('#score').textContent = `Score: ${totalScore}`;
+    console.log(totalScore)
+  } else {
+    document.querySelector('#selection-message').textContent = `Incorrect!`
+    console.log(totalScore)
+  }
+  if (turn > 9) {
+    localStorage.setItem('finalScore', `${totalScore}`)
+    window.location.replace("./final-score.html");
+  }
+}
 
 
-
-//Create interactive game with JavaScript
-  //Get user input for name
-  //Create dropdown menus for Category and Difficulty
-  //Go to game and display question 1 with Category, Question and possible answers
-  //User clicks on one question 
-    //If correct, background changes to green and score goes up by one
-      //else, background changed to red and score stays the same
-  //Goes to next question and repeats
-  //Games ends after 10 questions
-    //shows final score
