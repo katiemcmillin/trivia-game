@@ -1,0 +1,1 @@
+document.querySelector('h1').textContent = `Final Score: ${localStorage.getItem('finalScore')}`;
