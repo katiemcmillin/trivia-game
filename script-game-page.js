@@ -21,17 +21,20 @@ function makePrettyString(str) {
   str = str.replace(/&ldquo;/g, '"');
   str = str.replace(/&amp;/g, '&');
   str = str.replace(/&rdquo;/g, '"');
-  str = str.replace(/&eacute;/g, 'è');
-  str = str.replace(/&iacute;/g, 'ì');
+  str = str.replace(/&eacute;/g, 'é');
+  str = str.replace(/&iacute;/g, 'í');
   str = str.replace(/&uuml;/g, 'ü');
   str = str.replace(/&ecirc;/g, 'î');
   str = str.replace(/&ntilde;/g, 'ñ');
-  str = str.replace(/ouml;/g, 'ö')
+  str = str.replace(/ouml;/g, 'ö');
+  str = str.replace(/oacute;/g, 'ó');
+  str = str.replace(/aacute;/g, 'á');
+  str = str.replace(/uacute;/g, 'ú');
   return str;
 }
 
 document.querySelector('#category').textContent = `Category: ${localStorage.categoryText}`;
-document.querySelector('#answerTitle').textContent = `${localStorage.name}, select the correct answer`
+document.querySelector('#answerTitle').textContent = `${localStorage.name}, select the correct answer:`
 
 function currentQuestion(data, turn) {
   let question = `${makePrettyString(data.results[turn].question)}`
@@ -61,8 +64,10 @@ function currentQuestion(data, turn) {
     } else {
       answerButton.classList = 'wrong-answer';
     }
-    document.querySelector('#answer').append(answerLabel);
-    document.querySelector('#answer').append(answerButton);
+    let listElement = document.createElement('li');
+    document.querySelector('#answer-list').append(listElement);
+   listElement.append(answerLabel);
+    listElement.append(answerButton);
   });
 
 
