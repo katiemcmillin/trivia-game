@@ -2,7 +2,7 @@ async function getQuestions() {
   const questionsURL = `https://opentdb.com/api.php?amount=10&category=${localStorage.categoryId}&difficulty=${localStorage.difficulty}`;
   try {
     let questionDataResponse = await axios.get(questionsURL);
-    console.log(questionDataResponse.data);
+    //console.log(questionDataResponse.data);
     currentQuestion(questionDataResponse.data);
     //console.log(questionDataResponse.data.results[0].question)
   } catch (error) {
@@ -11,15 +11,69 @@ async function getQuestions() {
 }
 getQuestions();
 
+function makePrettyString(str) {
+  str = str.replace(/&quot;/g, '"');
+  str = str.replace(/&#039;/g, "'");
+  str = str.replace(/&ldquo;/g, '"');
+  str = str.replace(/&amp;/g, '&');
+  str = str.replace(/&rdquo;/g, '"');
+  return str;
+}
+
 document.querySelector('#category').textContent = `Category: ${localStorage.categoryText}`;
 
 function currentQuestion(data) {
-  let question = `${data.results[0].question}`.replace(/&quot;/g, '"');
-  question = question.replace(/ldquo;/g, '"');
-  document.querySelector('#question').textContent = `Question: ${question.replace(/&#039;/g, '"')}`;
+  let question = `${makePrettyString(data.results[0].question)}`
+  document.querySelector('#question').textContent = `Question: ${question}`;
+  let allAnswersArray = [];
+  const correctAnswer = `${makePrettyString(data.results[0].correct_answer)}`;
+  let incorrectAnswersArray = data.results[0].incorrect_answers;
 
-
+  for (i = 0; i < incorrectAnswersArray.length; i++) {
+    makePrettyString(incorrectAnswersArray[i]);
+  };
+  allAnswersArray = [correctAnswer, ...incorrectAnswersArray];
+  allAnswersArray = allAnswersArray.sort(() => Math.random() - 0.5);
+  // Found syntax for radio buttons here: https://www.tutorialspoint.com/how-to-dynamically-create-radio-buttons-using-an-array-in-javascript
+  //https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
+  allAnswersArray.forEach(answer => {
+    let answerLabel = document.createElement('label');
+    let answerButton = document.createElement('input');
+    answerLabel.setAttribute('for', answer)
+    answerLabel.textContent = answer;
+    answerButton.value = answer;
+    answerButton.name = 'choice';
+    answerButton.type = 'radio';
+    if (answer === correctAnswer) {
+      answerButton.classList = 'correct-answer';
+    } else {
+      answerButton.classList = 'wrong-answer';
     }
+    document.querySelector('#answer').append(answerLabel);
+    document.querySelector('#answer').append(answerButton);
+  });
+  const btn = document.querySelector('#btn');
+  // handle click button
+  btn.onclick = function () {
+    const choices = document.querySelectorAll('input[name="choice"]');
+    let selectedValue;
+    for (const choice of choices) {
+      if (choice.checked) {
+        selectedValue = choice.value;
+        console.log(selectedValue)
+        break
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+
 //Create interactive game with JavaScript
   //Get user input for name
   //Create dropdown menus for Category and Difficulty
