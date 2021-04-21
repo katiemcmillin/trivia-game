@@ -139,5 +139,4 @@ function makePrettyString(str) {
 ```
 I'm proud of this function that cleans up the special characters that did not render correctly.
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.
  I used local storage for my API and user input so that I could have multiple HTML files and be able to access the information on all of them. 
