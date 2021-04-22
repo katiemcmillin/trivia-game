@@ -77,8 +77,9 @@ function currentQuestion(data, turn) {
     }
     let listElement = document.createElement('li');
     document.querySelector('#answer-list').append(listElement);
-    listElement.append(answerLabel);
     listElement.append(answerButton);
+    listElement.append(answerLabel);
+    
   });
 
 
