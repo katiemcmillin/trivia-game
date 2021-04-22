@@ -8,20 +8,20 @@ body {
   margin: 20px;
   box-sizing: border-box;
   background-color: #50ffce;
+  padding-right: 10px; /* 3 */
+  padding-left:  10px; /* 3 */
+}
  
 }
 .container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: stretch;
   margin: 0 auto;
   text-align: center;
   border: 2px solid black;
-  background-color: white;
 }
 header {
-  text-shadow: 3px 3px white;
 }
 input[type='text'] {
   margin-top: 50px;
@@ -50,22 +50,37 @@ input.button {
 div#question {
   margin-top: 50px;
   margin-bottom: 50px;
+  font-size: x-large;
+  font-weight: 700;
+  color:#052663;
 }
 div#answer {
   background-color: white;
   border: 2px solid black;
   padding-bottom: 15px;
 }
-div#answer-div {
-  justify-content: left;
+div.answer-div {
+  flex-direction: row;
+  text-align: left;
+  padding: auto;
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+ 
+  
+  max-width: 275px; /* 2 */
 }
 ul#answer-list{
   list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margins */
+}
+li {
+  justify-content: right;
+  text-align: left;
 }
 img {
   width: 100%;
+}
+#trivia-photo {
+  max-width: 70%;
 }
 @media only screen and (max-width: 500px) {
   .container {

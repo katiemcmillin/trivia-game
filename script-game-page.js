@@ -19,7 +19,7 @@ async function getQuestions() {
     let questionDataResponse = await axios.get(questionsURL);
     localStorage.setItem('apiData', JSON.stringify(questionDataResponse.data));
     currentQuestion(JSON.parse(localStorage.getItem('apiData')), turn);
-
+  
   } catch (error) {
     console.error(error);
   }
@@ -42,6 +42,8 @@ function makePrettyString(str) {
   str = str.replace(/&uacute;/g, 'ú');
   str = str.replace(/&deg;/g, '°');
   str = str.replace(/&rsquo;/g, "'");
+  str = str.replace(/&shy;/g, "");
+  str = str.replace(/&Eacute;/g, 'É');
   return str;
 }
 
