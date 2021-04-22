@@ -51,38 +51,46 @@ document.querySelector('#category').textContent = `Category: ${localStorage.cate
 document.querySelector('#answerTitle').textContent = `${localStorage.name}, select the correct answer:`
 
 function currentQuestion(data, turn) {
-  let question = `${makePrettyString(data.results[turn].question)}`
-  document.querySelector('#question').textContent = `Question: ${question}`;
-  document.querySelectorAll('li').forEach(e => e.remove());
-  let allAnswersArray = [];
-  const correctAnswer = `${makePrettyString(data.results[turn].correct_answer)}`;
-  let incorrectAnswersArray = data.results[turn].incorrect_answers;
-  for (i = 0; i < incorrectAnswersArray.length; i++) {
-    incorrectAnswersArray[i] = makePrettyString(incorrectAnswersArray[i]);
-  };
-  allAnswersArray = [correctAnswer, ...incorrectAnswersArray];
-  allAnswersArray = allAnswersArray.sort(() => Math.random() - 0.5);
-  // Found syntax for radio buttons here: https://www.tutorialspoint.com/how-to-dynamically-create-radio-buttons-using-an-array-in-javascript
-  //https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
-  allAnswersArray.forEach(answer => {
-    let answerLabel = document.createElement('label');
-    let answerButton = document.createElement('input');
-    answerLabel.setAttribute('for', answer)
-    answerLabel.textContent = answer;
-    answerButton.value = answer;
-    answerButton.name = 'choice';
-    answerButton.type = 'radio';
-    if (answer === correctAnswer) {
-      answerButton.classList = 'correct-answer';
-    } else {
-      answerButton.classList = 'wrong-answer';
-    }
-    let listElement = document.createElement('li');
-    document.querySelector('#answer-list').append(listElement);
-    listElement.append(answerButton);
-    listElement.append(answerLabel);
-    
-  });
+  try {
+    let question = `${makePrettyString(data.results[turn].question)}`
+    document.querySelector('#question').textContent = `Question: ${question}`;
+    document.querySelectorAll('li').forEach(e => e.remove());
+    let allAnswersArray = [];
+    const correctAnswer = `${makePrettyString(data.results[turn].correct_answer)}`;
+    let incorrectAnswersArray = data.results[turn].incorrect_answers;
+    for (i = 0; i < incorrectAnswersArray.length; i++) {
+      incorrectAnswersArray[i] = makePrettyString(incorrectAnswersArray[i]);
+    };
+    allAnswersArray = [correctAnswer, ...incorrectAnswersArray];
+    allAnswersArray = allAnswersArray.sort(() => Math.random() - 0.5);
+    // Found syntax for radio buttons here: https://www.tutorialspoint.com/how-to-dynamically-create-radio-buttons-using-an-array-in-javascript
+    //https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
+    allAnswersArray.forEach(answer => {
+      let answerLabel = document.createElement('label');
+      let answerButton = document.createElement('input');
+      answerLabel.setAttribute('for', answer)
+      answerLabel.textContent = answer;
+      answerButton.value = answer;
+      answerButton.name = 'choice';
+      answerButton.type = 'radio';
+      if (answer === correctAnswer) {
+        answerButton.classList = 'correct-answer';
+      } else {
+        answerButton.classList = 'wrong-answer';
+      }
+      let listElement = document.createElement('li');
+      document.querySelector('#answer-list').append(listElement);
+      listElement.append(answerButton);
+      listElement.append(answerLabel);
+      
+    });
+  
+  } catch (error) {
+    document.querySelector('#answerTitle').textContent = "Please select another difficulty for this category.";
+    let backLink = document.createElement('a');
+    backLink.innerHTML = '<a href = "./index.html">back</a>';
+    document.querySelector('#answer').append(backLink);
+  }
 
 
 }
