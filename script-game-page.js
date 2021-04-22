@@ -94,7 +94,7 @@ function currentQuestion(data, turn) {
 /* If user selects difficulty that category doesn't include, throws user an error
 and asks them to go back to first page */
   } catch (error) {
-    document.querySelector('#answerTitle').textContent = "Please select another difficulty for this category.";
+    document.querySelector('#answer-title').textContent = "Please select another difficulty for this category.";
     let backLink = document.createElement('a');
     backLink.innerHTML = '<a href = "./index.html">back</a>';
     document.querySelector('#answer').append(backLink);
