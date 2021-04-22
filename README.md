@@ -112,9 +112,9 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Pseudocode                                  | M | 1hr | .5hr | .5hr |
 | Setting up/working with API                 | H | 3hrs| 4hrs | 4hrs |
 | Setting up functionality/writing code       | H | 5hrs| 6hrs | 6hrs |
-| Basic CSS                                   | H | 5hrs| 1hr | N/A |
-| Responsive Design                           | M | 2hrs| N/A | N/A |
-| Advanced CSS / Animations/Transitions       | L | 8hrs| N/A | N/A |
+| Basic CSS                                   | H | 5hrs| 5hrs | N/A |
+| Responsive Design                           | M | 2hrs| 2hrs | N/A |
+| Advanced CSS / Animations/Transitions       | L | 8hrs| 1hr | N/A |
 | Total | H | 30hrs| N/A | N/A |
 
 ## Code Snippet
@@ -128,15 +128,23 @@ function makePrettyString(str) {
   str = str.replace(/&ldquo;/g, '"');
   str = str.replace(/&amp;/g, '&');
   str = str.replace(/&rdquo;/g, '"');
-  str = str.replace(/&eacute;/g, 'è');
-  str = str.replace(/&iacute;/g, 'ì');
+  str = str.replace(/&eacute;/g, 'é');
+  str = str.replace(/&iacute;/g, 'í');
   str = str.replace(/&uuml;/g, 'ü');
   str = str.replace(/&ecirc;/g, 'î');
   str = str.replace(/&ntilde;/g, 'ñ');
-  str = str.replace(/ouml;/g, 'ö')
+  str = str.replace(/&ouml;/g, 'ö');
+  str = str.replace(/&oacute;/g, 'ó');
+  str = str.replace(/&aacute;/g, 'á');
+  str = str.replace(/&uacute;/g, 'ú');
+  str = str.replace(/&deg;/g, '°');
+  str = str.replace(/&rsquo;/g, "'");
+  str = str.replace(/&shy;/g, "");
+  str = str.replace(/&Eacute;/g, 'É');
   return str;
 }
 ```
 I'm proud of this function that cleans up the special characters that did not render correctly.
 ## Change Log
+
  I used local storage for my API and user input so that I could have multiple HTML files and be able to access the information on all of them. 
