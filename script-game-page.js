@@ -5,6 +5,9 @@ API Request with User Input
 let totalScore = 0;
 let turn = 0;
 
+/* Displays Score: 0 at Start of Game */
+document.querySelector('#score').textContent = `Score: ${totalScore}`;
+
 /* Pulls API and Stores to Local Storage */
 async function getQuestions() {
   const questionsURL = `https://opentdb.com/api.php?amount=10&category=${localStorage.categoryId}&difficulty=${localStorage.difficulty}`;
@@ -47,10 +50,10 @@ function makePrettyString(str) {
   return str;
 }
 
-/* Displays Category, User Name, Score: 0 at start of game */
+/* Displays Category, User Name at start of game */
 document.querySelector('#category').textContent = `Category: ${localStorage.categoryText}`;
-document.querySelector('#answerTitle').textContent = `${localStorage.name}, select the correct answer:`
-document.querySelector('#score').textContent = `Score: ${totalScore}`;
+document.querySelector('#answer-title').textContent = `${localStorage.name}, select the correct answer:`
+
 
 
 /* Renders Questions and Answers
@@ -110,7 +113,7 @@ Checks for Correct Answer and Keeps Score
 const btn = document.querySelector('#btn');
 btn.onclick = function selectAnswer() {
   const choices = document.querySelectorAll('input[name="choice"]');
-  let selectedValue = null;
+  let selectedValue;
   for (const choice of choices) {
     if (choice.checked) {
       selectedValue = choice.value;
