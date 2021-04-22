@@ -12,7 +12,6 @@ body {
   padding-left:  10px; /* 3 */
 }
  
-
 .container {
   display: flex;
   flex-direction: row;
@@ -33,68 +32,39 @@ select#select-category {
   margin-bottom: 50px;
   white-space: pre-line;
 }
+
 select#select-difficulty {
   white-space: pre-line;
   margin-bottom: 50px;
-  }
+}
+
 input.button {
   white-space: pre-line;
   margin-bottom: 50px;
   background-color: #50ffce;
 }
-#btn {
-  margin-top: 10px;
 
-  
-}
-div#question {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-size: x-large;
-  font-weight: 700;
-  color:#052663;
-}
-div#answer {
-  background-color: white;
-  border: 2px solid black;
-  padding-bottom: 15px;
-}
-div.answer-div {
-  flex-direction: row;
-  text-align: left;
-  padding: auto;
-  margin-right: auto; /* 1 */
-  margin-left:  auto; /* 1 */
- 
-  
-  max-width: 275px; /* 2 */
-}
-ul#answer-list{
-  list-style-type: none; /* Remove bullets */
-}
+
 #img-div {
   margin-top: 50px;
 }
-li {
-  justify-content: right;
-  text-align: left;
-}
+
 img {
-  width: 100%;
+  max-width: 70%;
 }
 h1#name {
   margin-top: 50px;
   margin-bottom: 50px;
 }
-div#final-image {
-  margin: 100px 40px 40px 40px;
-}
-#trivia-photo {
-  max-width: 70%;
+h1#final-score {
+  margin-bottom: 50px;
 }
 @media only screen and (max-width: 500px) {
   .container {
     background-color: #50ffce;
     border: none;
+  }
+  h1#name, h1#final-score {
+    font-size: 15px;
   }
 }

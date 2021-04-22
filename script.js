@@ -1,10 +1,11 @@
-//Link API
-//Get Categories from API
+/*=====================================================
+API Request for Categories
+======================================================*/
+
 async function getCategories() {
   try {
     const categoryURL = 'https://opentdb.com/api_category.php';
-    let categoryResponse = await axios.get(categoryURL);
-    //console.log(categoryResponse.data.trivia_categories);
+    const categoryResponse = await axios.get(categoryURL);
     setOptions(categoryResponse.data.trivia_categories);
     return categoryResponse.data.trivia_categories;
   } catch (error) {
@@ -12,20 +13,22 @@ async function getCategories() {
   }
 }
 getCategories();
-//Append to DOM
+
+//Append Categories to DOM
 function setOptions(list) {
-  //console.log(list)
   const selectTag = document.querySelector('#select-category')
   list.forEach((category) => {
-    //console.log(category)
-    const optionTag = document.createElement('option')
+    const optionTag = document.createElement('option');
     optionTag.textContent = category.name;
     optionTag.id = category.id;
     localStorage.setItem(`${category.name}`, category.id);
-    selectTag.append(optionTag)
+    selectTag.append(optionTag);
   })
   return null;
 }
+/*=====================================================
+Get User Input
+======================================================*/
 
 function getValues(e) {
   e.preventDefault()
@@ -38,47 +41,19 @@ function getValues(e) {
   localStorage.setItem('difficulty', difficultyLevel);
 
   }
-console.log(localStorage.categoryText);
-
 
 const form = document.querySelector('form')
 form.addEventListener("submit", getValues)
 
 
+/*=====================================================
+Redirect First Page to Game Page
+======================================================*/
 
-//Redirect input page to gamepage
 
 function redirect() {
   window.location.replace("./game-page.html");
   return false;
 }
 
-
-//Display Info on GamePage
-
-
-
-// function displayDifficulty (){
-//   let categoryH2 = document.selectElementById('category');
-//   categoryH2.innerText = `Category: ${categoryValue}`;
-//   console.log(categoryH2);
-
-//Append Category to GamePage
-
-
-
-//Build out HTML elements/structure
-  //Create first page that asks for User Name, Category, and Difficulty
-  //Create interface for game
-    //Create Title
-    //Create box for questions
-    //Create inner box
-    //Create Category box
-    //Create question box
-    //Create score box
-    //Insert Image at bottom
-
-
-
-//Style with CSS/Flexbox
 

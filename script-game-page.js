@@ -1,30 +1,29 @@
-//Create interactive game with JavaScript
-  //Get user input for name
-  //Create dropdown menus for Category and Difficulty
-  //Go to game and display question 1 with Category, Question and possible answers
-  //User clicks on one question 
-    //If correct, score goes up by one
-      //else, score stays the same
-  //Goes to next question and repeats
-  //Games ends after 10 questions
-    //shows final score
+/*=====================================================
+API Request with User Input
+======================================================*/
+
 let totalScore = 0;
 let turn = 0;
 
-document.querySelector('#score').textContent = `Score: ${totalScore}`;
-
+/* Pulls API and Stores to Local Storage */
 async function getQuestions() {
   const questionsURL = `https://opentdb.com/api.php?amount=10&category=${localStorage.categoryId}&difficulty=${localStorage.difficulty}`;
   try {
-    let questionDataResponse = await axios.get(questionsURL);
+    const questionDataResponse = await axios.get(questionsURL);
     localStorage.setItem('apiData', JSON.stringify(questionDataResponse.data));
     currentQuestion(JSON.parse(localStorage.getItem('apiData')), turn);
-  
+
   } catch (error) {
     console.error(error);
   }
 }
 getQuestions();
+
+/*=====================================================
+Renders GamePlay Info
+======================================================*/
+
+/* Replaces special characters in Q&A Strings */
 function makePrettyString(str) {
   str = str.replace(/&quot;/g, '"');
   str = str.replace(/&#039;/g, "'");
@@ -44,11 +43,21 @@ function makePrettyString(str) {
   str = str.replace(/&rsquo;/g, "'");
   str = str.replace(/&shy;/g, "");
   str = str.replace(/&Eacute;/g, 'É');
+  str = str.replace(/&euml;/g, 'ë');
   return str;
 }
 
+/* Displays Category, User Name, Score: 0 at start of game */
 document.querySelector('#category').textContent = `Category: ${localStorage.categoryText}`;
 document.querySelector('#answerTitle').textContent = `${localStorage.name}, select the correct answer:`
+document.querySelector('#score').textContent = `Score: ${totalScore}`;
+
+
+/* Renders Questions and Answers
+
+Found syntax for radio buttons here:
+https://www.tutorialspoint.com/how-to-dynamically-create-radio-buttons-using-an-array-in-javascript
+https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/ */
 
 function currentQuestion(data, turn) {
   try {
@@ -63,8 +72,6 @@ function currentQuestion(data, turn) {
     };
     allAnswersArray = [correctAnswer, ...incorrectAnswersArray];
     allAnswersArray = allAnswersArray.sort(() => Math.random() - 0.5);
-    // Found syntax for radio buttons here: https://www.tutorialspoint.com/how-to-dynamically-create-radio-buttons-using-an-array-in-javascript
-    //https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/
     allAnswersArray.forEach(answer => {
       let answerLabel = document.createElement('label');
       let answerButton = document.createElement('input');
@@ -82,28 +89,32 @@ function currentQuestion(data, turn) {
       document.querySelector('#answer-list').append(listElement);
       listElement.append(answerButton);
       listElement.append(answerLabel);
-      
     });
-  
+
+/* If user selects difficulty that category doesn't include, throws user an error
+and asks them to go back to first page */
   } catch (error) {
     document.querySelector('#answerTitle').textContent = "Please select another difficulty for this category.";
     let backLink = document.createElement('a');
     backLink.innerHTML = '<a href = "./index.html">back</a>';
     document.querySelector('#answer').append(backLink);
   }
-
-
 }
 
+
+/*=====================================================
+Checks for Correct Answer and Keeps Score
+======================================================*/
+
+/* Handles User Answer Selection*/
 const btn = document.querySelector('#btn');
-// handle click button
 btn.onclick = function selectAnswer() {
   const choices = document.querySelectorAll('input[name="choice"]');
-  let selectedValue;
+  let selectedValue = null;
   for (const choice of choices) {
     if (choice.checked) {
       selectedValue = choice.value;
-      turn++
+      turn++;
       scoreTracker(choice.classList.value);
       currentQuestion(JSON.parse(localStorage.getItem('apiData')), turn);
       break
@@ -119,17 +130,15 @@ function scoreTracker(value) {
     totalScore++;
     let correctSound = new Audio('./Correct-answer.mp3');
     correctSound.play();
-    document.querySelector('#selection-message').textContent = `Correct!`
+    document.querySelector('#selection-message').textContent = `Correct!`;
     document.querySelector('#score').textContent = `Score: ${totalScore}`;
-    console.log(totalScore)
   } else {
     let incorrectSound = new Audio('./Error.mp3');
     incorrectSound.play();
-    document.querySelector('#selection-message').textContent = `Incorrect!`
-    console.log(totalScore)
+    document.querySelector('#selection-message').textContent = `Incorrect!`;
   }
   if (turn > 9) {
-    localStorage.setItem('finalScore', `${totalScore}`)
+    localStorage.setItem('finalScore', `${totalScore}`);
     window.location.replace("./final-score.html");
   }
 }
