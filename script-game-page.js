@@ -117,10 +117,14 @@ function scoreTracker(value) {
 
   if (value === 'correct-answer') {
     totalScore++;
+    let correctSound = new Audio('./Correct-answer.mp3');
+    correctSound.play();
     document.querySelector('#selection-message').textContent = `Correct!`
     document.querySelector('#score').textContent = `Score: ${totalScore}`;
     console.log(totalScore)
   } else {
+    let incorrectSound = new Audio('./Error.mp3');
+    incorrectSound.play();
     document.querySelector('#selection-message').textContent = `Incorrect!`
     console.log(totalScore)
   }

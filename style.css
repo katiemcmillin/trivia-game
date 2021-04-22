@@ -12,7 +12,7 @@ body {
   padding-left:  10px; /* 3 */
 }
  
-}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -20,9 +20,9 @@ body {
   margin: 0 auto;
   text-align: center;
   border: 2px solid black;
+  background-color: white;
 }
-header {
-}
+
 input[type='text'] {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -72,12 +72,22 @@ div.answer-div {
 ul#answer-list{
   list-style-type: none; /* Remove bullets */
 }
+#img-div {
+  margin-top: 50px;
+}
 li {
   justify-content: right;
   text-align: left;
 }
 img {
   width: 100%;
+}
+h1#name {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+div#final-image {
+  margin: 100px 40px 40px 40px;
 }
 #trivia-photo {
   max-width: 70%;
