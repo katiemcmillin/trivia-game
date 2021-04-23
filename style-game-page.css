@@ -12,8 +12,15 @@ body {
   padding-left:  10px; /* 3 */
 }
 
+div#question-number-div {
+  margin-top: 50px;
+}
+h3#category {
+  margin-top: 30px;
+   
+}
 div#question {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
   font-size: x-large;
   font-weight: 700;
@@ -55,6 +62,7 @@ img {
 }
 #btn {
   margin-top: 30px;
+  font-size: 20px;
 }
 #trivia-photo {
   max-width: 70%;
@@ -66,8 +74,18 @@ p#score {
   font-size: 20px;
 }
 @media only screen and (max-width: 500px) {
+  body {
+    margin: 0 auto;
+  }
   .container {
     background-color: #50ffce;
     border: none;
+  }
+  h3#category {
+    display: none;
+     
+  }
+  #btn {
+    font-size: 30px;
   }
 }

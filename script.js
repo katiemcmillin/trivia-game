@@ -16,7 +16,7 @@ getCategories();
 
 //Append Categories to DOM
 function setOptions(list) {
-  const selectTag = document.querySelector('#select-category')
+  const selectTag = document.querySelector('#select-category');
   list.forEach((category) => {
     const optionTag = document.createElement('option');
     optionTag.textContent = category.name;

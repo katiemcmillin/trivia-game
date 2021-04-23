@@ -50,7 +50,8 @@ function makePrettyString(str) {
   return str;
 }
 
-/* Displays Category, User Name at start of game */
+/* Displays Question Number, Category, User Name at start of game */
+document.querySelector('#question-number-text').textContent = `Question: ${turn + 1}/10`;
 document.querySelector('#category').textContent = `Category: ${localStorage.categoryText}`;
 document.querySelector('#answer-title').textContent = `${localStorage.name}, select the correct answer:`
 
@@ -64,9 +65,14 @@ https://www.javascripttutorial.net/javascript-dom/javascript-radio-button/ */
 
 function currentQuestion(data, turn) {
   try {
-    let question = `${makePrettyString(data.results[turn].question)}`
-    document.querySelector('#question').textContent = `Question: ${question}`;
+    /* Renders Question and Question Number*/
+    let question = `${makePrettyString(data.results[turn].question)}`;
+    document.querySelector('#question').textContent = `${question}`;
+    document.querySelector('#question-number-text').textContent = `Question: ${turn + 1}/10`;
+    /* Removes Previous Answer Choices from DOM */
     document.querySelectorAll('li').forEach(e => e.remove());
+    
+    /* Randomizes Answer Choices */
     let allAnswersArray = [];
     const correctAnswer = `${makePrettyString(data.results[turn].correct_answer)}`;
     let incorrectAnswersArray = data.results[turn].incorrect_answers;
@@ -75,10 +81,12 @@ function currentQuestion(data, turn) {
     };
     allAnswersArray = [correctAnswer, ...incorrectAnswersArray];
     allAnswersArray = allAnswersArray.sort(() => Math.random() - 0.5);
+    
+    /* Renders Answers and Radio Buttons */
     allAnswersArray.forEach(answer => {
       let answerLabel = document.createElement('label');
       let answerButton = document.createElement('input');
-      answerLabel.setAttribute('for', answer)
+      answerLabel.setAttribute('for', answer);
       answerLabel.textContent = answer;
       answerButton.value = answer;
       answerButton.name = 'choice';
@@ -113,10 +121,8 @@ Checks for Correct Answer and Keeps Score
 const btn = document.querySelector('#btn');
 btn.onclick = function selectAnswer() {
   const choices = document.querySelectorAll('input[name="choice"]');
-  let selectedValue;
   for (const choice of choices) {
     if (choice.checked) {
-      selectedValue = choice.value;
       turn++;
       scoreTracker(choice.classList.value);
       currentQuestion(JSON.parse(localStorage.getItem('apiData')), turn);
@@ -126,7 +132,7 @@ btn.onclick = function selectAnswer() {
 }
 
 
-
+/* Increments score and ends game after 10 questions */
 function scoreTracker(value) {
 
   if (value === 'correct-answer') {
