@@ -11,7 +11,10 @@ body {
   padding-right: 10px; /* 3 */
   padding-left:  10px; /* 3 */
 }
- 
+/*=====================================================
+First Page Styling
+======================================================*/
+
 .container {
   display: flex;
   flex-direction: row;
@@ -43,15 +46,17 @@ input.button {
   margin-bottom: 50px;
   background-color: #50ffce;
 }
-
+img {
+  max-width: 70%;
+}
 
 #img-div {
   margin-top: 50px;
 }
+/*=====================================================
+Final Score Page Styling
+======================================================*/
 
-img {
-  max-width: 70%;
-}
 h1#name {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -59,11 +64,18 @@ h1#name {
 h1#final-score {
   margin-bottom: 50px;
 }
+/*=====================================================
+Break point
+======================================================*/
+
+
 @media only screen and (max-width: 500px) {
+  /* First Page */
   .container {
     background-color: #50ffce;
     border: none;
   }
+  /* Final Page */
   h1#name, h1#final-score {
     font-size: 15px;
   }

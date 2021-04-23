@@ -26,6 +26,11 @@ div#question {
   font-weight: 700;
   color:#052663;
 }
+
+/*=====================================================
+Flex box for answers
+======================================================*/
+
 div#answer {
   display: flex;
   flex-direction: column;
@@ -34,11 +39,11 @@ div#answer {
   border: 2px solid black;
   padding-bottom: 15px;
 }
+
+/* Wrapper div for answers */
 div.answer-div {
-  flex-direction: row;
-  text-align: left;
-  padding: 0;
-  max-width: 275px; /* 2 */
+  padding: 0; /* Makes div wrap around elements */
+  max-width: 275px;
 }
 #answerTitle{
   font-weight: 500;
@@ -53,8 +58,8 @@ ul#answer-list{
 #img-div {
   margin-top: 50px;
 }
+/* Aligns answers */
 li {
-  justify-content: right;
   text-align: left;
 }
 img {
@@ -73,6 +78,11 @@ p#score {
   margin-bottom: 50px;
   font-size: 20px;
 }
+/*=====================================================
+Break point
+======================================================*/
+
+
 @media only screen and (max-width: 500px) {
   body {
     margin: 0 auto;
