@@ -6,8 +6,6 @@ You Don't Know Jill
 
 ## Project Description
 
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
-
 My project will be a trivia game with the ability to search by category and difficulty level
 
 ## API and Data Sample
@@ -61,8 +59,6 @@ Upload images of your wireframes to an image hosting site or add them to an asse
 https://whimsical.com/trivia-game-B6KBNXvt27sYc48iAuHuBa
 
 ### MVP/PostMVP
-
-The functionality will then be divided into two separate lists: MPV and PostMVP.  Carefully decided what is placed into your MVP as the client will expect this functionality to be implemented upon project completion.  
 
 #### MVP 
 - Asks users for name
@@ -150,4 +146,6 @@ I'm proud of this function that cleans up the special characters that did not re
 
  I used local storage for my API and user input so that I could have multiple HTML files and be able to access the information on all of them.
 
- I added a page that shows the final score. 
+ I added a page that shows the final score.
+
+ I took out the game name out of the game page in all screen sizes, and the category out for mobile.
