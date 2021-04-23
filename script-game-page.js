@@ -53,7 +53,7 @@ function makePrettyString(str) {
 /* Displays Question Number, Category, User Name at start of game */
 document.querySelector('#question-number-text').textContent = `Question: ${turn + 1}/10`;
 document.querySelector('#category').textContent = `Category: ${localStorage.categoryText}`;
-document.querySelector('#answer-title').textContent = `${localStorage.name}, select the correct answer:`
+document.querySelector('#answer-title').textContent = `${localStorage.name}, select the correct answer:`;
 
 
 
@@ -126,7 +126,6 @@ btn.onclick = function selectAnswer() {
       turn++;
       scoreTracker(choice.classList.value);
       currentQuestion(JSON.parse(localStorage.getItem('apiData')), turn);
-      break
     }
   }
 }

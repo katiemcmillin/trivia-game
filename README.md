@@ -111,11 +111,11 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | Setting up intitial HTML/CSS/JS and linking | H | 1hr | 1hr | 1hr |
 | Pseudocode                                  | M | 1hr | .5hr | .5hr |
 | Setting up/working with API                 | H | 3hrs| 4hrs | 4hrs |
-| Setting up functionality/writing code       | H | 5hrs| 6hrs | 6hrs |
-| Basic CSS                                   | H | 5hrs| 5hrs | N/A |
-| Responsive Design                           | M | 2hrs| 2hrs | N/A |
-| Advanced CSS / Animations/Transitions       | L | 8hrs| 1hr | N/A |
-| Total | H | 30hrs| N/A | N/A |
+| Setting up functionality/writing code       | H | 5hrs| 16hrs | 16hrs |
+| Basic CSS                                   | H | 5hrs| 7hrs | 7hrs|
+| Responsive Design                           | M | 2hrs| 2hrs | 2hrs |
+| Advanced CSS / Animations/Transitions       | L | 8hrs| 1hr | 1hr |
+| Total | H | 30hrs | 36.5hrs| 36.5hrs |
 
 ## Code Snippet
 
@@ -141,10 +141,13 @@ function makePrettyString(str) {
   str = str.replace(/&rsquo;/g, "'");
   str = str.replace(/&shy;/g, "");
   str = str.replace(/&Eacute;/g, 'É');
+  str = str.replace(/&euml;/g, 'ë');
   return str;
 }
 ```
 I'm proud of this function that cleans up the special characters that did not render correctly.
 ## Change Log
 
- I used local storage for my API and user input so that I could have multiple HTML files and be able to access the information on all of them. 
+ I used local storage for my API and user input so that I could have multiple HTML files and be able to access the information on all of them.
+
+ I added a page that shows the final score. 
