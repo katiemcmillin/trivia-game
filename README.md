@@ -125,6 +125,7 @@ function makePrettyString(str) {
   str = str.replace(/&quot;/g, '"');
   str = str.replace(/&#039;/g, "'");
   str = str.replace(/&ldquo;/g, '"');
+   str = str.replace(/&lsquo;/g, "'");
   str = str.replace(/&amp;/g, '&');
   str = str.replace(/&rdquo;/g, '"');
   str = str.replace(/&eacute;/g, 'é');
