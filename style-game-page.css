@@ -8,17 +8,19 @@ body {
   margin: 20px;
   box-sizing: border-box;
   background-color: #50ffce;
-  padding-right: 10px; /* 3 */
-  padding-left:  10px; /* 3 */
+  padding-right: 10px; 
+  padding-left:  10px; 
+}
+
+h3#category {
+  margin-top: 30px;
+  font-weight: 500;
 }
 
 div#question-number-div {
   margin-top: 50px;
 }
-h3#category {
-  margin-top: 30px;
-   
-}
+
 div#question {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -48,29 +50,19 @@ div.answer-div {
 #answerTitle{
   font-weight: 500;
 }
-h3#category{
-  font-weight: 500;
-}
+
 ul#answer-list{
   list-style-type: none; /* Remove bullets */
   padding: 0; 
 }
-#img-div {
-  margin-top: 50px;
-}
+
 /* Aligns answers */
 li {
   text-align: left;
 }
-img {
-  width: 100%;
-}
 #btn {
   margin-top: 30px;
   font-size: 20px;
-}
-#trivia-photo {
-  max-width: 70%;
 }
 
 p#score {

@@ -59,7 +59,7 @@ Final Score Page Styling
 
 h1#name {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 h1#final-score {
   margin-bottom: 50px;
@@ -77,6 +77,6 @@ Break point
   }
   /* Final Page */
   h1#name, h1#final-score {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
