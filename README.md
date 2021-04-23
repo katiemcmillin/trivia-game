@@ -56,7 +56,8 @@ https://opentdb.com/api.php?amount=10&category=25
 
 Upload images of your wireframes to an image hosting site or add them to an assets folder in your repo and link them here with a description of each specific wireframe.
 
-https://whimsical.com/trivia-game-B6KBNXvt27sYc48iAuHuBa
+https://github.com/katiemcmillin/trivia-game/blob/main/wireframes/Trivia%20game%20-%20Phone.png
+https://github.com/katiemcmillin/trivia-game/blob/main/wireframes/Trivia%20game%20-%20Window.png
 
 ### MVP/PostMVP
 
