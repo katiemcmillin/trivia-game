@@ -42,8 +42,8 @@ function getValues(e) {
 
   }
 
-const form = document.querySelector('form')
-form.addEventListener("submit", getValues)
+const form = document.querySelector('form');
+form.addEventListener("submit", getValues);
 
 
 /*=====================================================
